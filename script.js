@@ -3,20 +3,22 @@
 function compute()
 {
   var principal = document.getElementById("principal").value;
+  
   // check if principal is negative or zero and redirect user to enter positive number
     if(principal<=0){
       alert("Enter a positive number.");
       document.getElementById("principal").value = "";
       document.getElementById("principal").focus(); 
+      document.getElementById("result").innerHTML="";
+
 
       // this section should be the typical case
     } else {
       var rate = document.getElementById("rate").value;
       var years = document.getElementById("years").value;
       var interest = principal*years*rate / 100;
-      var year = new Date().getFullYear()+parseInt(years);        
+      var year = new Date().getFullYear()+parseInt(years);              
       var result = document.getElementById("result");
-
       // use the above vars in the text statement. Include highlighting by using span elements
       // use template literals `${}` to combine text with vars
       result.innerHTML = `If you deposit <span class="highlight">${principal}</span>,\<br\>
